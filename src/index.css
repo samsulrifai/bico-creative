@@ -1,0 +1,371 @@
+/* ===== Bico Creative — Design System "Bubbly Modernist" ===== */
+
+/* ===== Google Fonts (must be before tailwindcss import) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ===== Theme Registration for Tailwind v4 ===== */
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+  --animate-slide-in-right: slide-in-right 0.3s ease-out;
+  --animate-count-up: count-up 1s ease-out;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+/* ===== Design Tokens (Bubbly Modernist from DESIGN.md) ===== */
+@layer base {
+  :root {
+    /* Core surfaces — mapped from DESIGN.md */
+    --background: #f9f9ff;
+    --foreground: #141b2b;
+
+    --card: #ffffff;
+    --card-foreground: #141b2b;
+
+    --popover: #ffffff;
+    --popover-foreground: #141b2b;
+
+    --primary: #0035c5;
+    --primary-foreground: #ffffff;
+
+    --secondary: #e9edff;
+    --secondary-foreground: #002d7b;
+
+    --muted: #f1f3ff;
+    --muted-foreground: #434657;
+
+    --accent: #e9edff;
+    --accent-foreground: #141b2b;
+
+    --destructive: #ba1a1a;
+    --destructive-foreground: #ffffff;
+
+    --border: #c4c5da;
+    --input: #c4c5da;
+    --ring: #0047ff;
+
+    --radius: 0.625rem;
+
+    /* Extended Bico tokens */
+    --primary-container: #0047ff;
+    --secondary-container: #7197ff;
+    --surface-dim: #d3daef;
+    --surface-tint: #0046fa;
+    --surface-container: #e9edff;
+    --surface-container-low: #f1f3ff;
+    --surface-container-high: #e1e8fd;
+    --inverse-surface: #293040;
+    --inverse-on-surface: #edf0ff;
+    --inverse-primary: #b9c3ff;
+    --outline: #747688;
+    --tertiary: #444852;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #5c606a;
+
+    /* Spacing tokens */
+    --space-unit: 8px;
+    --gutter-desktop: 32px;
+    --gutter-mobile: 16px;
+    --margin-desktop: 80px;
+    --margin-mobile: 24px;
+    --section-padding: 120px;
+
+    /* Shadow */
+    --shadow-ambient: 0 4px 30px rgba(0, 53, 197, 0.08);
+
+    /* Sidebar (admin) */
+    --sidebar: #f1f3ff;
+    --sidebar-foreground: #141b2b;
+    --sidebar-primary: #0035c5;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #e9edff;
+    --sidebar-accent-foreground: #141b2b;
+    --sidebar-border: #c4c5da;
+    --sidebar-ring: #0047ff;
+
+    /* Charts */
+    --chart-1: #0035c5;
+    --chart-2: #2d58bd;
+    --chart-3: #7197ff;
+    --chart-4: #b9c3ff;
+    --chart-5: #444852;
+  }
+
+  .dark {
+    --background: #0f1321;
+    --foreground: #dce2f7;
+
+    --card: #1a1f30;
+    --card-foreground: #dce2f7;
+
+    --popover: #1a1f30;
+    --popover-foreground: #dce2f7;
+
+    --primary: #b9c3ff;
+    --primary-foreground: #001257;
+
+    --secondary: #1e2a45;
+    --secondary-foreground: #b3c5ff;
+
+    --muted: #1a1f30;
+    --muted-foreground: #8e90a3;
+
+    --accent: #1e2a45;
+    --accent-foreground: #dce2f7;
+
+    --destructive: #ff6b6b;
+    --destructive-foreground: #ffffff;
+
+    --border: #3a3d50;
+    --input: #3a3d50;
+    --ring: #7197ff;
+
+    --inverse-surface: #dce2f7;
+    --inverse-on-surface: #293040;
+
+    --sidebar: #141828;
+    --sidebar-foreground: #dce2f7;
+    --sidebar-primary: #b9c3ff;
+    --sidebar-primary-foreground: #001257;
+    --sidebar-accent: #1e2a45;
+    --sidebar-accent-foreground: #dce2f7;
+    --sidebar-border: #3a3d50;
+    --sidebar-ring: #7197ff;
+  }
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-bold;
+  }
+}
+
+/* ===== Typography Utilities ===== */
+@layer utilities {
+  .text-headline-xl {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+  }
+
+  .text-headline-xl-mobile {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+  }
+
+  .text-headline-lg {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: -0.01em;
+  }
+
+  .text-headline-md {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  .text-body-lg {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .text-body-md {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .text-label-sm {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ===== Keyframe Animations ===== */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ===== Scroll Reveal ===== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===== Container ===== */
+.container-bico {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margin-mobile);
+  padding-right: var(--margin-mobile);
+}
+
+@media (min-width: 640px) {
+  .container-bico {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-bico {
+    padding-left: var(--margin-desktop);
+    padding-right: var(--margin-desktop);
+    max-width: 1440px;
+  }
+}
+
+/* ===== Section Spacing ===== */
+.section-padding {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+}
