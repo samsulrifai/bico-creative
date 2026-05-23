@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 import {
   Select,
   SelectContent,
@@ -119,7 +118,7 @@ export default function SettingsEditor() {
     try {
       const { error } = await supabase
         .from('site_settings')
-        .upsert({ id: recordId, ...settings, social_links, updated_at: new Date().toISOString() })
+        .upsert({ ...settings, id: recordId, social_links, updated_at: new Date().toISOString() })
       
       if (error) throw error
 

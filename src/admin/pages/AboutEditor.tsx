@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 import { toast } from 'sonner'
 import {
   Save,
@@ -117,7 +116,7 @@ export default function AboutEditor() {
     try {
       const { error } = await supabase
         .from('about_content')
-        .upsert({ id: recordId, ...about, updated_at: new Date().toISOString() })
+        .upsert({ ...about, id: recordId, updated_at: new Date().toISOString() })
       
       if (error) throw error
       

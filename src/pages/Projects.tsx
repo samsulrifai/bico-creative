@@ -9,7 +9,6 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import ScrollReveal from '@/components/shared/ScrollReveal'
-import SectionHeading from '@/components/shared/SectionHeading'
 import CTABanner from '@/components/shared/CTABanner'
 import { useProjects } from '@/hooks/useSupabase'
 import { dummyProjects } from '@/lib/dummy-data'

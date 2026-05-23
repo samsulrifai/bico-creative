@@ -37,10 +37,6 @@ const projectGradients = [
   'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
 ]
 
-/* ===== Client logo colors ===== */
-const clientColors = [
-  '#0035c5', '#ff6b6b', '#00c6fb', '#f5576c', '#43e97b', '#ffa07a',
-]
 
 export default function Home() {
   useEffect(() => {
@@ -116,36 +112,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================================ */}
-      {/* CLIENTS MARQUEE                               */}
-      {/* ============================================ */}
-      <section className="py-16 border-y border-border/50 bg-muted/30 overflow-hidden">
-        <div className="container-bico mb-8">
-          <p className="text-label-sm text-muted-foreground text-center uppercase tracking-widest">
-            Dipercaya oleh brand-brand terbaik
-          </p>
-        </div>
-        <div className="relative">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...h.client_logos, ...h.client_logos].map((client, i) => (
-              <div
-                key={`${client.name}-${i}`}
-                className="flex-shrink-0 mx-8 flex items-center justify-center rounded-xl px-8 py-4 h-16 min-w-[160px] font-bold text-white text-sm tracking-wide transition-transform hover:scale-105"
-                style={{
-                  backgroundColor: clientColors[i % clientColors.length],
-                  opacity: 0.85,
-                }}
-              >
-                {client.name}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================================ */}
       {/* SERVICES OVERVIEW                             */}

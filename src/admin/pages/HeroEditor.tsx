@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 import { toast } from 'sonner'
 import { Save, Sparkles, Loader2, Link as LinkIcon, Type } from 'lucide-react'
 
@@ -52,7 +51,7 @@ export default function HeroEditor() {
     try {
       const { error } = await supabase
         .from('hero_content')
-        .upsert({ id: recordId, ...hero, updated_at: new Date().toISOString() })
+        .upsert({ ...hero, id: recordId, updated_at: new Date().toISOString() })
       
       if (error) throw error
       
